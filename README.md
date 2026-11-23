@@ -25,17 +25,16 @@ The full `vehicles.csv` file is not included because of its size. To rerun the d
 | `src/vehicle_features.py` | Feature engineering and prediction functions |
 | `app/app.py` | Streamlit price-estimation app |
 | `models/model_metadata.json` | Saved model settings and evaluation results |
-| `price_model.joblib` | Trained model file, currently in the repository root |
+| `models/price_model.joblib` | Trained model file |
 | `outputs/` | Cleaning reports, model results and other CSV outputs |
 | `docs/` | Data dictionary |
-| Repository root | Analysis charts and `feature_importance.png` |
+| `outputs/figures/` and `docs/feature_importance.png` | Analysis charts and feature importance plot |
 | `requirements.txt` | Python dependencies |
 
 ## Run the application
 
 1. Install the dependencies with `pip install -r requirements.txt`.
-2. Move `price_model.joblib` from the repository root into `models/`, where the app expects it.
-3. Start the app with `streamlit run app/app.py`.
+2. Start the app with `streamlit run app/app.py`.
 
 The original dataset is only needed to rerun the training notebooks. The app loads the saved model and metadata.
 
@@ -54,7 +53,7 @@ These are estimates of advertised prices, not final sale prices. The dataset com
 
 ## Deployment
 
-The Streamlit app has not yet been deployed. Its public URL can be added here after deployment.
+To deploy on Streamlit Community Cloud, connect GitHub, select this repository, choose `app/app.py` as the main file and select Python 3.12 in Advanced settings. The live Streamlit URL will be added when it is provided.
 
 ## AI-use disclosure
 
