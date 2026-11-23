@@ -9,8 +9,8 @@ regression model that estimates the typical asking price of a used car or truck 
 ## Team members and roles
 | Name | GitHub username | Role / contribution |
 |---|---|---|
-| *add name* | *add username* | *add role* |
-| *add name* | *add username* | *add role* |
+| Rashed Ali | RashedMazrooei | Data preprocessing, exploratory data analysis, and model development |
+| Sultan Alshamsi | SultanAlshamsi | Model evaluation, Streamlit app development, and project documentation |
 
 ## Dataset
 * **Source:** Craigslist Cars and Trucks Dataset (Austin Reese) - https://www.kaggle.com/datasets/austinreese/craigslist-carstrucks-data
