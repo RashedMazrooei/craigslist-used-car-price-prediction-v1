@@ -53,7 +53,7 @@ These are estimates of advertised prices, not final sale prices. The dataset com
 
 ## Deployment
 
-To deploy on Streamlit Community Cloud, connect GitHub, select this repository, choose `app/app.py` as the main file and select Python 3.12 in Advanced settings. The live Streamlit URL will be added when it is provided.
+To deploy on Streamlit Community Cloud, connect GitHub, select this repository, choose `app/app.py` as the main file and select Python 3.12 in Advanced settings. Live app: [Used-Car Price Prediction](https://craigslist-used-car-price-prediction-v1-mqlc6my78qsyzbacfinzye.streamlit.app/).
 
 ## AI-use disclosure
 
