@@ -1,49 +1,61 @@
-# Used Vehicle Price Prediction and Market Valuation Using Machine Learning
+# Craigslist Used-Car Price Prediction
 
-CDS4003 - Data Science Final Project
+CDS4003 – Data Science Final Project
 
-## Business problem
-Buyers, sellers and dealerships find it hard to judge whether the asking price of a used vehicle is reasonable. This project builds a
-regression model that estimates the typical asking price of a used car or truck from its attributes and deploys it as a web app.
+This project uses machine learning to estimate the asking price of a used vehicle in the United States. The model takes details such as the manufacturer, model, year, mileage and condition, then provides an estimated price and an indicative range. The Streamlit app also lets users compare an advertised price with the estimate.
 
-## Team members and roles
-| Name | GitHub username | Role / contribution |
+## Team members
+
+| Name | GitHub username | Contribution |
 |---|---|---|
-| Rashed Ali | RashedMazrooei | Data preprocessing, exploratory data analysis, and model development |
-| Sultan Alshamsi | SultanAlshamsi | Model evaluation, Streamlit app development, and project documentation |
+| Rashed Ali | RashedMazrooei | Data preprocessing, exploratory data analysis and model development |
+| Sultan Alshamsi | SultanAlshamsi | Model evaluation, Streamlit app development and project documentation |
 
 ## Dataset
-* **Source:** Craigslist Cars and Trucks Dataset (Austin Reese) - https://www.kaggle.com/datasets/austinreese/craigslist-carstrucks-data
-* **Licence:** *quote the licence shown on the Kaggle dataset page*
-* **How to obtain:** download `vehicles.csv` from Kaggle and place it in `data/raw/` (it is not stored in this repository because of its size).
-  A 5,000-row sample of the cleaned data is in `data/sample/`.
 
-## Folder structure
-```
-data/        raw/ (not tracked), processed/ (full cleaned file not tracked), sample/
-notebooks/   Colab notebook with Stages 1-7
-src/         vehicle_features.py (feature engineering shared by training and app)
-models/      price_model.joblib, model_metadata.json
-app/         app.py (Streamlit app)
-outputs/     CSV reports and figures
-docs/        data dictionary, feature importance figure
-requirements.txt
-```
+The project uses the [Craigslist Cars and Trucks dataset by Austin Reese](https://www.kaggle.com/datasets/austinreese/craigslist-carstrucks-data). Check the Kaggle page for the dataset's licence and usage terms.
 
-## How to run
-1. Install the libraries: `pip install -r requirements.txt`
-2. Run the notebook in `notebooks/` from top to bottom in Google Colab (upload `vehicles.csv` when asked).
-3. Start the app locally: `streamlit run app/app.py`
+The full `vehicles.csv` file is not included because of its size. To rerun the data preparation notebooks, download it from Kaggle and place it in `data/raw/`. A sample of 5,000 cleaned records is available in `data/sample/`.
 
-## Summary of results
-* Cleaned dataset: 240,186 listings after removing 0 exact duplicates, 44,904 re-posted adverts and 10,361 records with an invalid price.
-* Final model: **Hist. gradient boosting**, trained on log(price).
-* Test set: R-squared 0.676; median absolute percentage error 18.7%; 52.7% of predictions within 20% of the asking price;
-  mean absolute error $4,610.
-* Limitations: asking prices (not sale prices), one website, one time period, seller-entered data.
+## Repository contents
 
-## Live app
-*Add the Streamlit Community Cloud link here after deployment.*
+| Path | Contents |
+|---|---|
+| `notebooks/` | Four notebooks covering data preparation, exploration, modelling and deployment |
+| `src/vehicle_features.py` | Feature engineering and prediction functions |
+| `app/app.py` | Streamlit price-estimation app |
+| `models/model_metadata.json` | Saved model settings and evaluation results |
+| `price_model.joblib` | Trained model file, currently in the repository root |
+| `outputs/` | Cleaning reports, model results and other CSV outputs |
+| `docs/` | Data dictionary |
+| Repository root | Analysis charts and `feature_importance.png` |
+| `requirements.txt` | Python dependencies |
 
-## AI tools used
-*List the AI tools used in this project and how they were used (required by the course).*
+## Run the application
+
+1. Install the dependencies with `pip install -r requirements.txt`.
+2. Move `price_model.joblib` from the repository root into `models/`, where the app expects it.
+3. Start the app with `streamlit run app/app.py`.
+
+The original dataset is only needed to rerun the training notebooks. The app loads the saved model and metadata.
+
+## Model results
+
+The cleaned dataset contains **240,186 listings**, after removing repeated advertisements and records with invalid prices. The final model uses histogram-based gradient boosting to predict log-transformed vehicle prices.
+
+| Test metric | Result |
+|---|---:|
+| R² | 0.676 |
+| Median absolute percentage error | 18.7% |
+| Predictions within 20% of asking price | 52.7% |
+| Mean absolute error | $4,610 |
+
+These are estimates of advertised prices, not final sale prices. The dataset comes from one platform and time period, so market changes and missing vehicle details can affect accuracy.
+
+## Deployment
+
+The Streamlit app has not yet been deployed. Its public URL can be added here after deployment.
+
+## AI-use disclosure
+
+The final CDS4003 submission should accurately identify any AI tools used and explain their role, as required by the course.
